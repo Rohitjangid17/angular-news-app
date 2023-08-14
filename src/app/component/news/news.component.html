@@ -1,7 +1,28 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-4">
-            <app-news-items></app-news-items>
-        </div>
+        <ng-container *ngFor="let newsItem of newsItems">
+            <div class="col-sm-6 col-md-6 col-lg-4 mt-4">
+                <div class="card news-items-card">
+                    <ng-container *ngIf="newsItem?.urlToImage; else noImage">
+                        <img [src]="newsItem?.urlToImage"
+                            class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
+                    </ng-container>
+                    <ng-template #noImage>
+                        <img src="../../../assets/image/news-card/no-image.jpg"
+                            class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
+                    </ng-template>
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{newsItem?.title | slice:0:30 }}
+                        </h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
