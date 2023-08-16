@@ -12,6 +12,6 @@ export class CommonService {
   ) { }
 
   getNewsData(): Observable<ArticlesResponse> {
-    return this._httpClient.get<ArticlesResponse>("https://newsapi.org/v2/everything?q=tesla&from=2023-07-15&sortBy=publishedAt&apiKey=a5367a3977184e6c8acd72cc1d15c8bb");
+    return this._httpClient.get<ArticlesResponse>("https://newsapi.org/v2/everything?q=apple&from=2023-08-15&to=2023-08-15&sortBy=popularity&apiKey=a5367a3977184e6c8acd72cc1d15c8bb");
   }
 }
