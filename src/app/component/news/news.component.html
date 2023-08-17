@@ -24,7 +24,11 @@
                         </div>
                     </div>
                 </div>
+
             </ng-container>
+        </div>
+        <div class="list-group mt-5" *ngIf="apiError">
+            <li class="list-group-item bg-danger text-white py-3">{{apiError}}</li>
         </div>
     </div>
 </div>
