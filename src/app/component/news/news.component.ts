@@ -8,21 +8,34 @@ import { CommonService } from 'src/app/service/common.service';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent {
-  newsItems: Article[] = []
+  newsItems: Article[] = [];
+  pageSize: number = 0;
+  currentPage: number = 1;
 
   constructor(
     private _commonService: CommonService
   ) { }
 
   ngOnInit(): void {
-    this.getNews();
+    this.onGetNews();
   }
 
 
-  getNews() {
-    this._commonService.getNewsData().subscribe((res: ArticlesResponse) => {
+  onGetNews() {
+    this._commonService.getNewsData(this.pageSize, this.currentPage).subscribe((res: ArticlesResponse) => {
       this.newsItems = res.articles;
+      this.currentPage++;
       console.log(this.newsItems)
+    }, (error) => {
+      console.log(error.message);
+      this.newsItems = [];
+      this.currentPage = 1;
     })
+  }
+
+
+  onScroll() {
+    console.log('scrolled!!');
+    this.onGetNews()
   }
 }

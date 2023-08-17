@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from "@angular/common/http"
+import { HttpClientModule } from "@angular/common/http";
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -20,7 +21,8 @@ import { NewsItemsComponent } from './component/news/news-items/news-items.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

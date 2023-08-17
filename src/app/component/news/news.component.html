@@ -1,28 +1,30 @@
 <div class="container">
-    <div class="row">
-        <ng-container *ngFor="let newsItem of newsItems">
-            <div class="col-sm-6 col-md-6 col-lg-4 mt-4">
-                <div class="card news-items-card shadow-sm">
-                    <ng-container *ngIf="newsItem?.urlToImage; else noImage">
-                        <img [src]="newsItem?.urlToImage"
-                            class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
-                    </ng-container>
-                    <ng-template #noImage>
-                        <img src="../../../assets/image/news-card/no-image.jpg"
-                            class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
-                    </ng-template>
+    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+        <div class="row">
+            <ng-container *ngFor="let newsItem of newsItems">
+                <div class="col-sm-6 col-md-6 col-lg-4 mt-4">
+                    <div class="card news-item-card shadow-sm position-relative">
+                        <span
+                            class="position-absolute top-0 badge rounded-pill bg-danger">{{newsItem?.source?.name}}</span>
+                        <ng-container *ngIf="newsItem?.urlToImage; else noImage">
+                            <img [src]="newsItem?.urlToImage"
+                                class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
+                        </ng-container>
+                        <ng-template #noImage>
+                            <img src="../../../assets/image/news-card/no-image.jpg"
+                                class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
+                        </ng-template>
 
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{newsItem?.title | slice:0:30 }}
-                        </h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ newsItem?.title | slice:0:25 }}...
+                            </h5>
+                            <p class="card-text">By {{newsItem?.author}} on {{newsItem?.publishedAt }}</p>
+                            <a [href]="newsItem?.url" target="_blank" class="btn btn-dark">Read More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </ng-container>
+            </ng-container>
+        </div>
     </div>
 </div>
