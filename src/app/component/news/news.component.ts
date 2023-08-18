@@ -33,10 +33,4 @@ export class NewsComponent {
       this.currentPage = 1;
     })
   }
-
-
-  onScroll() {
-    console.log('scrolled!!');
-    this.onGetNews()
-  }
 }
