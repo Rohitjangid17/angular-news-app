@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Article } from 'src/app/model/news';
 
 @Component({
   selector: 'app-news-items',
@@ -6,5 +7,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-items.component.scss']
 })
 export class NewsItemsComponent {
-
+  @Input() newsItems: Article[] = []
 }

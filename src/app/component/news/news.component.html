@@ -1,34 +1,7 @@
 <div class="container">
-    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
-        <div class="row">
-            <ng-container *ngFor="let newsItem of newsItems">
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-4">
-                    <div class="card news-item-card shadow-sm position-relative">
-                        <span
-                            class="position-absolute top-0 badge rounded-pill bg-danger">{{newsItem?.source?.name}}</span>
-                        <ng-container *ngIf="newsItem?.urlToImage; else noImage">
-                            <img [src]="newsItem?.urlToImage"
-                                class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
-                        </ng-container>
-                        <ng-template #noImage>
-                            <img src="../../../assets/image/news-card/no-image.jpg"
-                                class="img-fluid object-fit-cover card-img-top news-card-image" alt="no image">
-                        </ng-template>
+    <app-news-items [newsItems]="newsItems"></app-news-items>
 
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {{ newsItem?.title | slice:0:25 }}...
-                            </h5>
-                            <p class="card-text">By {{newsItem?.author}} on {{newsItem?.publishedAt }}</p>
-                            <a [href]="newsItem?.url" target="_blank" class="btn btn-dark">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-            </ng-container>
-        </div>
-        <div class="list-group mt-5" *ngIf="apiError">
-            <li class="list-group-item bg-danger text-white py-3">{{apiError}}</li>
-        </div>
+    <div class="list-group mt-5" *ngIf="apiError">
+        <li class="list-group-item bg-danger text-white py-3">{{apiError}}</li>
     </div>
 </div>
