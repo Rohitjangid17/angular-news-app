@@ -7,7 +7,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { NewsComponent } from './component/news/news.component';
+import { GeneralNewsComponent } from './component/news/general-news.component';
 import { NewsItemsComponent } from './component/news/news-items/news-items.component';
 import { LoaderSpinnerComponent } from './component/loader-spinner/loader-spinner.component';
 
@@ -16,7 +16,7 @@ import { LoaderSpinnerComponent } from './component/loader-spinner/loader-spinne
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NewsComponent,
+    GeneralNewsComponent,
     NewsItemsComponent,
     LoaderSpinnerComponent
   ],

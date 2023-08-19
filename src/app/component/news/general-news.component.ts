@@ -4,10 +4,10 @@ import { CommonService } from 'src/app/service/common.service';
 
 @Component({
   selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  templateUrl: './general-news.component.html',
+  styleUrls: ['./general-news.component.scss']
 })
-export class NewsComponent {
+export class GeneralNewsComponent {
   newsItems: Article[] = [];
   apiError: string = "";
   isLoading: boolean = false;
@@ -29,6 +29,7 @@ export class NewsComponent {
     }, (error) => {
       this.apiError = error.message;
       this.newsItems = [];
+      this.isLoading = false;
     })
   }
 }

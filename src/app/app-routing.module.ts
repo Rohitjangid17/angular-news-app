@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewsComponent } from './component/news/news.component';
+import { GeneralNewsComponent } from './component/news/general-news.component';
 
 const routes: Routes = [
   {
-    path: "", component: NewsComponent
+    path: "", component: GeneralNewsComponent
   }
 ];
 
