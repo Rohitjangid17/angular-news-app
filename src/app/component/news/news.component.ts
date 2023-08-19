@@ -9,9 +9,8 @@ import { CommonService } from 'src/app/service/common.service';
 })
 export class NewsComponent {
   newsItems: Article[] = [];
-  pageSize: number = 5;
-  currentPage: number = 1;
   apiError: string = "";
+  isLoading: boolean = false;
 
   constructor(
     private _commonService: CommonService
@@ -23,14 +22,13 @@ export class NewsComponent {
 
 
   onGetNews() {
+    this.isLoading = true;
     this._commonService.getNewsData().subscribe((res: ArticlesResponse) => {
       this.newsItems = res.articles;
-      // this.currentPage++;
-      console.log(this.newsItems)
+      this.isLoading = false;
     }, (error) => {
       this.apiError = error.message;
       this.newsItems = [];
-      // this.currentPage = 1;
     })
   }
 }

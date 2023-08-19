@@ -9,6 +9,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NewsComponent } from './component/news/news.component';
 import { NewsItemsComponent } from './component/news/news-items/news-items.component';
+import { LoaderSpinnerComponent } from './component/loader-spinner/loader-spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NewsItemsComponent } from './component/news/news-items/news-items.compo
     NavbarComponent,
     FooterComponent,
     NewsComponent,
-    NewsItemsComponent
+    NewsItemsComponent,
+    LoaderSpinnerComponent
   ],
   imports: [
     BrowserModule,
