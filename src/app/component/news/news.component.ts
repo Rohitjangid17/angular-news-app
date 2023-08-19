@@ -23,14 +23,14 @@ export class NewsComponent {
 
 
   onGetNews() {
-    this._commonService.getNewsData(this.pageSize, this.currentPage).subscribe((res: ArticlesResponse) => {
+    this._commonService.getNewsData().subscribe((res: ArticlesResponse) => {
       this.newsItems = res.articles;
-      this.currentPage++;
+      // this.currentPage++;
       console.log(this.newsItems)
     }, (error) => {
       this.apiError = error.message;
       this.newsItems = [];
-      this.currentPage = 1;
+      // this.currentPage = 1;
     })
   }
 }

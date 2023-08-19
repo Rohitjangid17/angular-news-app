@@ -13,9 +13,9 @@ export class CommonService {
     private _httpClient: HttpClient
   ) { }
 
-  getNewsData(pageSize: number, currentPage: number): Observable<ArticlesResponse> {
+  getNewsData(): Observable<ArticlesResponse> {
     // return this._httpClient.get<ArticlesResponse>(`https://newsapi.org/v2/everything?q=apple&from=2023-08-15&to=2023-08-15&sortBy=popularity&apiKey=a5367a3977184e6c8acd72cc1d15c8bb&page=${pageSize}&count=${currentPage}`);
     // return this._httpClient.get<ArticlesResponse>(`https://newsapi.org/v2/everything?q=tesla&from=2023-07-16&sortBy=publishedAt&apiKey=${this.apiKey}&page=${currentPage}&count=${pageSize}`);
-    return this._httpClient.get<ArticlesResponse>(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${this.apiKey}&page=${currentPage}&count${pageSize}`);
+    return this._httpClient.get<ArticlesResponse>(`https://newsapi.org/v2/everything?q=everything&apiKey=${this.apiKey}`);
   }
 }
